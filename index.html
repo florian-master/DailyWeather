@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Application météo</title>
+    <link rel="shortcut icon" href="./images/UB.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="vicopo api.js" defer></script>
+    <script src="weather.js" defer></script>
+</head>
+<body>
+    <div id="menu">
+        <span>
+            <input id="search" autocomplete="off" placeholder="ex:Paris">
+            <button id="submit" type="button">afficher</button>
+        </span>
+        <div class="matchList"></div>
+    </div>
+
+    <div id="data">
+        <div style="width:510px;color:#000;border:1px solid #F2F2F2;">
+            <iframe height="85" frameborder="0" width="510" scrolling="no" 
+                    src="http://www.prevision-meteo.ch/services/html/paris/horizontal?bg=ff0000&txtcol=F2F2F2&tmpmin=fff000&tmpmax=378ADF" 
+                    allowtransparency="true">
+            </iframe>
+            <a style="text-decoration:none;font-size:0.75em;" title="Détail des prévisions pour Paris" 
+                href="http://www.prevision-meteo.ch/meteo/localite/paris">Prévisions complètes pour Paris
+            </a>
+        </div>
+    </div>
+</body>
+</html>
