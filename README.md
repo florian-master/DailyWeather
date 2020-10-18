@@ -1,10 +1,10 @@
 # Daily Weather FRANCE
-## Every day is unique; lives there specially
+## Chaque jour est unique; vit là spécialement ...
 
 Based on APIs and code:
-* www.prevision-meteo.ch
-* vicopo.selfbuild.fr
-* geo.api.gouv.fr
-* leafletjs.com
-* www.openstreetmap.fr
-* nominatim.org
+* https://www.prevision-meteo.ch
+* https://vicopo.selfbuild.fr
+* https://geo.api.gouv.fr/
+* https://leafletjs.com/
+* https://www.openstreetmap.fr/
+* https://nominatim.org/

@@ -9,14 +9,14 @@ function getWeather(city, code, latlon) {
     document.querySelector('#data').innerHTML = 
     "<div style=\"width:510px;color:#000;border:1px solid #F2F2F2;\">" +
         "<iframe height=\"85\" frameborder=\"0\" width=\"510\" scrolling=\"no\"" + 
-            "src=\"http://www.prevision-meteo.ch/services/html/"+ 
+            "src=\"https://www.prevision-meteo.ch/services/html/"+ 
             city + 
             "/horizontal?bg=ff0000&txtcol=F2F2F2&tmpmin=fff000&tmpmax=378ADF\"" +
             
             "allowtransparency=\"true\">" +
         "</iframe>"+
         "<a style=\"text-decoration:none;font-size:0.75em;\" title=\"Détail des prévisions pour Paris\"" + 
-            "href=\"http://www.prevision-meteo.ch/meteo/localite/"+
+            "href=\"https://www.prevision-meteo.ch/meteo/localite/"+
             city + "\">Prévisions complètes pour " + city
         "</a>" +
     "</div>";
