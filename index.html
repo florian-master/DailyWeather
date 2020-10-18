@@ -1,33 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Application météo</title>
-    <link rel="shortcut icon" href="./images/UB.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-    <script src="weather.js" defer></script>
-</head>
-<body>
-    <div id="menu">
-        <span>
-            <input id="search" autocomplete="off" placeholder="ex:Paris">
-            <button id="submit" type="button">afficher</button>
-        </span>
-        <div class="matchList"></div>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Application météo</title>
+        
+        <!-- CSS -->
+        <link rel="shortcut icon" href="./images/UB.ico" type="image/x-icon">
+        <link rel="stylesheet" href="./css/index.css" />
+        <link rel="stylesheet" href="./css/bootstrap.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin="anonymous"/>
+        
+        <!-- Weather & Map Js -->
+        <script src="./js/weather.js" defer></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+                integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+                crossorigin="anonymous">
+        </script>
+    
+        
+        <!-- Bootstrap Js -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <div id="data">
-        <div style="width:510px;color:#000;border:1px solid #F2F2F2;">
-            <iframe height="85" frameborder="0" width="510" scrolling="no" 
-                    src="http://www.prevision-meteo.ch/services/html/paris/horizontal?bg=ff0000&txtcol=F2F2F2&tmpmin=fff000&tmpmax=378ADF" 
-                    allowtransparency="true">
-            </iframe>
-            <a style="text-decoration:none;font-size:0.75em;" title="Détail des prévisions pour Paris" 
-                href="http://www.prevision-meteo.ch/meteo/localite/paris">Prévisions complètes pour Paris
-            </a>
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/b3ff4bb5ab.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand"><i class="fas fa-cloud-sun"></i> Daily Weather</a>
+            <div class="copyrigth text-muted text-center py-3 ">
+              <h5>
+                Copyright &copy; 2020 |
+                <a class="text-info text-decoration-none " href="#">Florian Simba</a>
+              </h5>
+            </div>
+        </nav>
+        <!-- Main container -->
+        <div class="container">
+            <h1>Chaque jour est unique; vit là spécialement ...</h1>
+            <div id="map" class="my-2"></div>
+            <div class="row my-4">
+                <div class="col-lg-6 col-12">
+                    <h5 class="description my-2">Type a city or postal code, you can also choose a place on the map</h5>
+                    <input id="search" type="text" class="form-control my-2" placeholder="ex:Paris ou 34000">
+                </div>
+                <div id="data" class="col-lg-6 col-12">
+                    <iframe height="85" frameborder="0" width="510" scrolling="no" 
+                        src="http://www.prevision-meteo.ch/services/html/paris/horizontal?bg=ff0000&txtcol=F2F2F2&tmpmin=fff000&tmpmax=378ADF" 
+                        allowtransparency="true">
+                    </iframe>
+                </div>
+                
+            </div>
+            
+            <div id="matchList">
+            </div>
         </div>
-    </div>
 </body>
 </html>

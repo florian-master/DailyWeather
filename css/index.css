@@ -1,0 +1,29 @@
+.copyrigth {
+    display: -webkit-inline-box;
+    position: absolute;
+    right: 10px;
+}
+
+#map {
+    height: 400px; 
+}
+
+#data{
+    margin: auto;
+}
+
+#search #matchList {
+    width: 50%;
+    margin: auto;
+}
+
+.selected:hover {
+    background-color: #da6153;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    height: 75px;
+    width: 100%;
+}
