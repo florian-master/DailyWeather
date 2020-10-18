@@ -1,9 +1,10 @@
 
-let center = [44.8421, -0.5777]; // Bordeaux
+let center = [48.8641, 2.333]; // Paris 1er Arr Coord.
 const zoom = 10; // adjust map's zoom
 
 // Show Weather and refocus the map on the right position 
-function getWeather(city, code, latlon) {
+function getWeather(city, code, coordonates) {
+    console.log(coordonates)
     document.querySelector('#search').value = city + " " + code; // Fill the search field
     city = city.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     document.querySelector('#data').innerHTML = 
@@ -22,7 +23,7 @@ function getWeather(city, code, latlon) {
     "</div>";
     
     // Move the marker and show the place pointed on
-    let center = [latlon[1],latlon[0]];
+    let center = [coordonates[1],coordonates[0]];
     map.setView(center,zoom);
     marker.setLatLng(center);
 
@@ -43,9 +44,10 @@ marker.addTo(map)
 // get the place pointed by the user on the map and show the weather
 map.on('click', function(e) {
     let pt = e.latlng;
+    console.log(pt)
     fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${pt.lat}&lon=${pt.lng}`, { method: 'GET' })
     .then(response => response.json().then((json) => {
-            getWeather(json.address.municipality, 33000 , [pt.lng, pt.lat]);
+            getWeather(json.address.municipality, json.address.postcode , [pt.lng, pt.lat]);
             // getCity(json.address.postcode); // not work properly due to wrong post code
     }))
     .catch((e) => console.log("can't get city and center "+ e));
