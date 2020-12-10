@@ -50,7 +50,7 @@ map.on('click', function(e) {
             getWeather(json.address.municipality, json.address.postcode , [pt.lng, pt.lat]);
             // getCity(json.address.postcode); // not work properly due to wrong post code
     }))
-    .catch((e) => console.log("can't get city and center "+ e));
+    .catch((e) => console.err("can't get city and center "+ e));
 } );
 
 // Get the text written in the search field
@@ -76,7 +76,7 @@ document.getElementById('search').addEventListener('input', (event)=>{
                 document.getElementById('matchList').innerHTML = html;
 
             }))
-            .catch((e) => console.log("can't find postal code "+ e));
+            .catch((e) => console.err("can't find postal code "+ e));
         }
     } else if(value.length > 0) { // case of city
         matchList=[];
@@ -113,5 +113,5 @@ function getCity(code) {
     .then(response => response.json().then((json) => {
         getWeather(json[0].nom, json[0].codesPostaux[0], json[0].centre.coordinates);
     }))
-    .catch((e) => console.log("can't find city and center "+ e));
+    .catch((e) => console.err("can't find city and center "+ e));
 }
